@@ -1,0 +1,19 @@
+// function connectToStore() { jQuery(".loader").css({ display: "block", "background-color": "black" }); var e = jQuery("#website").val().trim(),
+//         t = jQuery("#key_client").val().trim(),
+//         n = jQuery("#sec_client").val().trim();
+//     save_options(e, t, n); var o = new XMLHttpRequest;
+//     o.onreadystatechange = function() { if (4 == o.readyState) { var t = o.status; if (200 === t) jQuery(".loader").css({ display: "none" }), jQuery('.nav-item a[id="pills-connect-tab"]').css({ "background-color": "green" }), jQuery('.nav-item a[id="pills-connect-tab"]').css({ color: "white" }), jQuery("#not-connected").hide(), jQuery("#connected").show(), displayToast("Connected successfully", "green"), jQuery("#isConnectedArea").css("background-color", "green");
+//             else if (0 === t) isNotConnected(), displayToast("Error establishing connection to host " + e + " This can be caused by 1- Firewall block or filtering 2- An installed browser extension is mucking things, disable other chrome extensions one by one and try again 3- Installed plugin that prevent the connection to your host (security plugins, cache plugins, etc..", "red"), jQuery("#isConnectedArea").css("background-color", "red"), jQuery(".loader").css({ display: "none" });
+//             else { if (isNotConnected(), jQuery("#isConnectedArea").css("background-color", "red"), o.response && o.response && o.response.length > 13) try { var n = JSON.parse(xmlConnect.response).data;
+//                     displayToast("Error establishing connection to host " + e + "  " + n, "red") } catch (t) { displayToast("Error establishing connection to host " + e, "red") } else displayToast("Error establishing connection to host " + e + " wordpress url is not valid", "red"), jQuery(".loader").css({ display: "none" });
+//                 jQuery(".loader").css({ display: "none" }) } } }, o.open("POST", hostname + ":8002/authentification", !0), o.setRequestHeader("Content-Type", "application/json"), o.send(JSON.stringify({ premuimExtension: !1, clientWebsite: e, clientKey: t, clientSecretKey: n, isPluginWordpress: !0 })) }
+
+// function save_options(e, t, n) { e && t && n && (localStorage.setItem("website", e), localStorage.setItem("key_client", t), localStorage.setItem("sec_client", n)) }
+
+// function restore_options() { var e, t, n;
+//     e = localStorage.getItem("website"), t = localStorage.getItem("key_client"), n = localStorage.getItem("sec_client"), document.getElementsByClassName("website")[0] && (document.getElementsByClassName("website")[0].value = e || ""), document.getElementsByClassName("key_client")[0] && (document.getElementsByClassName("key_client")[0].value = t || ""), document.getElementsByClassName("sec_client")[0] && (document.getElementsByClassName("sec_client")[0].value = n || ""), e && t && n ? connectToStore() : (jQuery("#not-connected").show(), jQuery("#connected").hide(), jQuery('.nav-item a[id="pills-connect-tab"]').css({ "background-color": "red" }), jQuery('.nav-item a[id="pills-connect-tab"]').css({ color: "white" })) }
+
+// function displayToast(e, t) { jQuery.toast({ text: e, bgColor: "white", textColor: t, hideAfter: 5e3, stack: 5, textAlign: "left", position: "bottom-right" }) }
+
+// function isNotConnected() { jQuery("#not-connected").show(), jQuery("#connected").hide() }
+// jQuery(document).on("click", "#connectToStore", function(e) { connectToStore() }), jQuery(document).ready(function() { jQuery('.nav-item a[id="pills-advanced-tab"]').html(jQuery('.nav-item a[id="pills-advanced-tab"]').text() + '<span   class="badge badge-light"> <i class="fas fa-star"></i> </span>'), jQuery("#remaining").text("Imported products: " + localStorage.getItem("totalImportItems") || 1), restore_options() });
